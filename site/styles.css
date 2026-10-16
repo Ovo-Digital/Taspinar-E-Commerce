@@ -1731,3 +1731,11 @@ html[data-bg] body{background:var(--page)}
 .pop-tease:hover{transform:translateY(-2px)}
 .pop__w--tr{right:40%}
 @media (max-width:760px){.pop__w--tr{right:20px}}
+
+/* alt satır: ajans imzası */
+.ft__ovo{display:inline-flex;align-items:center;gap:6px;padding-left:20px;border-left:1px solid rgba(239,227,210,.16);color:rgba(239,227,210,.5);transition:color .3s}
+.ft__ovo b{font-weight:600;color:rgba(239,227,210,.82);transition:color .3s}
+.ft__ovo svg{width:10px;height:10px;fill:none;stroke:currentColor;stroke-width:1.4;transition:transform .3s}
+.ft__ovo:hover,.ft__ovo:hover b{color:#e0a43c}
+.ft__ovo:hover svg{transform:translate(2px,-2px)}
+@media (max-width:760px){.ft__bottom{justify-content:flex-start}.ft__ovo{width:100%;padding:14px 0 0;border-left:0;border-top:1px solid rgba(239,227,210,.1)}}
