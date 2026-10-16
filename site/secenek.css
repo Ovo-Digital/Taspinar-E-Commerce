@@ -1,0 +1,427 @@
+/* Eda Taşpınar — ürün detay seçenekleri */
+.ps{padding-top:62px}
+.ps__tabs{position:sticky;top:62px;z-index:40;display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:10px var(--edge);background:rgba(246,242,236,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(23,14,9,.08)}
+.ps__tabs span{font:600 11px/1 var(--f-sans);letter-spacing:.18em;text-transform:uppercase;color:#a8601a;margin-right:10px}
+.ps__tabs button{height:34px;padding:0 14px;border-radius:999px;border:1px solid rgba(23,14,9,.16);font:500 12.5px/1 var(--f-sans);transition:all .25s}
+.ps__tabs button[aria-pressed="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.ps__root{opacity:0;transition:opacity .5s ease}
+.ps__root.is-ready{opacity:1}
+.cx-eye{font:500 11px/1 var(--f-sans);letter-spacing:.22em;text-transform:uppercase;color:#a8601a}
+.cx-st{color:#c9822a;letter-spacing:1px}
+.cx-add{width:100%;height:54px;margin-top:18px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;border-radius:2px;background:var(--ink);color:var(--cream);font:600 12px/1 var(--f-sans);letter-spacing:.18em;text-transform:uppercase;transition:background .3s}
+.cx-add:hover{background:#7a4310}
+.cx-add span{letter-spacing:.02em}
+s{color:#a3958a;font-weight:400;margin-left:8px;font-size:.8em}
+/* ekrana girince */
+.rv-up{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1.2s cubic-bezier(.22,.8,.2,1)}
+.rv-up.in{opacity:1;transform:none}
+.rv-zoom{transform:scale(1.12);transition:transform 1.8s cubic-bezier(.22,.8,.2,1)}
+.rv-zoom.in{transform:none}
+
+/* ===== 1 · EDİTORYAL GALERİ ===== */
+.c1{display:grid;grid-template-columns:1.35fr 1fr;gap:0;border-bottom:1px solid rgba(23,14,9,.1)}
+.c1__gal figure{margin:0;aspect-ratio:4/5;overflow:hidden;background:#ece3d6}
+.c1__gal figure + figure{border-top:1px solid var(--page)}
+.c1__gal img{width:100%;height:100%;object-fit:cover}
+.c1__hero{display:grid;place-items:center;background:#efe6d9!important}
+.c1__hero img{width:auto!important;height:68%!important;object-fit:contain!important;filter:drop-shadow(0 12px 12px rgba(0,0,0,.14)) drop-shadow(30px 40px 40px rgba(60,35,10,.2))}
+.c1__buy{position:sticky;top:118px;align-self:start;padding:clamp(40px,5vw,72px) clamp(28px,5vw,80px)}
+.c1__name{margin-top:18px;font:400 clamp(42px,3.8vw,60px)/1 "Instrument Serif",Georgia,serif;letter-spacing:-.01em}
+.c1__notes{margin-top:10px;font:italic 400 20px/1.3 "Instrument Serif",serif;color:#7a6b5d}
+.c1__price{margin-top:22px;font:500 18px/1 var(--f-sans)}
+.c1__lab{margin-top:30px;font:500 11px/1 var(--f-sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.c1__pick{display:flex;flex-wrap:wrap;gap:0;margin-top:10px;border-top:1px solid rgba(23,14,9,.12)}
+.c1__pick button{width:50%;text-align:left;padding:11px 0;border-bottom:1px solid rgba(23,14,9,.12);font:400 14px/1 var(--f-sans);color:var(--muted);transition:color .25s,padding .3s}
+.c1__pick button:nth-child(odd){padding-right:12px}
+.c1__pick button[aria-pressed="true"]{color:var(--ink);font-weight:600}
+.c1__pick button[aria-pressed="true"]::before{content:"— ";color:#a8601a}
+.c1__ship{margin-top:12px;font-size:12px;color:var(--muted)}
+.c1__buy details{border-top:1px solid rgba(23,14,9,.12)}
+.c1__buy details:first-of-type{margin-top:28px}
+.c1__buy summary{list-style:none;cursor:pointer;padding:16px 0;font:500 13px/1 var(--f-sans);display:flex;justify-content:space-between}
+.c1__buy summary::after{content:"+";color:var(--muted)}
+.c1__buy details[open] summary::after{content:"–"}
+.c1__buy details p{padding-bottom:16px;font-size:14px;line-height:1.65;color:#5d4f43}
+.c1__notesband{padding:clamp(80px,9vw,140px) var(--edge);text-align:center}
+.c1__notesband div{display:flex;justify-content:center;gap:clamp(30px,8vw,140px);margin-top:28px}
+.c1__notesband p{font:400 clamp(34px,4vw,64px)/1 "Instrument Serif",serif}
+.c1__notesband small{display:block;margin-bottom:12px;font:500 11px/1 var(--f-sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.c1__split{display:grid;grid-template-columns:1fr 1fr;align-items:center;overflow:hidden}
+.c1__split img{width:100%;height:100%;min-height:560px;object-fit:cover}
+.c1__split div{padding:clamp(40px,7vw,120px)}
+.c1__h{margin-top:16px;font:400 clamp(40px,4vw,62px)/1.02 "Instrument Serif",serif}
+.c1__split p:last-child{margin-top:18px;max-width:420px;font-size:16px;line-height:1.7;color:#5d4f43}
+
+/* ===== 2 · SAHNE ===== */
+.c2{position:relative;height:330vh;--p:0}
+.c2__stick{position:sticky;top:116px;height:calc(100vh - 116px);overflow:hidden;display:grid;place-items:center}
+.c2__bg{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 55%,color-mix(in oklab,var(--r2) 45%,#f6f2ec),#f6f2ec 70%)}
+.c2__eye{position:absolute;top:5%;left:0;right:0;text-align:center;font:500 11px/1 var(--f-sans);letter-spacing:.24em;text-transform:uppercase;color:#7a4310}
+.c2__name{position:absolute;top:9%;left:0;right:0;text-align:center;font:800 clamp(64px,10vw,170px)/.85 "Big Shoulders Display",Impact,sans-serif;text-transform:uppercase;
+  color:transparent;-webkit-text-stroke:1.2px rgba(122,67,16,.55);transform:translateY(calc(var(--p) * -60px));opacity:calc(1 - var(--p) * .6)}
+.c2__p{position:relative;z-index:2;height:min(54vh,520px);transform:translateY(calc(40px - var(--p) * 60px)) scale(calc(.82 + var(--p) * .38)) rotate(calc(-6deg + var(--p) * 6deg));
+  filter:drop-shadow(0 18px 16px rgba(0,0,0,.2)) drop-shadow(40px 60px 50px rgba(60,35,10,.25));transition:transform .1s linear}
+.c2__b{position:absolute;z-index:3;max-width:240px;opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .9s cubic-bezier(.22,.8,.2,1)}
+.c2__b.on{opacity:1;transform:none}
+.c2__b b{display:block;font:800 30px/1 "Big Shoulders Display",sans-serif;text-transform:uppercase}
+.c2__b span{display:block;margin-top:8px;font-size:14px;line-height:1.5;color:#5d4f43}
+.c2__b::before{content:"";display:block;width:40px;height:1px;background:#a8601a;margin-bottom:14px}
+.c2__b--0{left:8%;top:40%}.c2__b--1{right:8%;top:30%;text-align:right}.c2__b--1::before{margin-left:auto}.c2__b--2{left:12%;bottom:16%}
+.c2__dock{position:absolute;z-index:4;left:50%;bottom:20px;transform:translate(-50%,140%);width:min(980px,calc(100% - 32px));display:grid;grid-template-columns:auto 1fr auto 260px;align-items:center;gap:20px;
+  padding:14px 14px 14px 22px;border-radius:999px;background:rgba(255,255,255,.92);box-shadow:0 20px 50px -20px rgba(0,0,0,.3);transition:transform .7s cubic-bezier(.22,.8,.2,1)}
+.c2.dock .c2__dock,.c2__dock:hover{transform:translate(-50%,0)}
+.c2__dock > div b{display:block;font:800 22px/1 "Big Shoulders Display",sans-serif;text-transform:uppercase}
+.c2__dock > div span{font-size:12px;color:var(--muted)}
+.c2__pick{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.c2__pick button{flex:0 0 auto;height:32px;padding:0 12px;border-radius:999px;font:500 12px/1 var(--f-sans);color:var(--muted)}
+.c2__pick button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.c2__price{white-space:nowrap;font-size:15px}
+.c2__dock .cx-add{margin:0;height:48px;border-radius:999px}
+.c2__after{position:relative;height:80vh;overflow:hidden;display:grid;place-items:center;text-align:center;color:#fff}
+.c2__after video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c2__after::after{content:"";position:absolute;inset:0;background:rgba(23,14,9,.3)}
+.c2__after div{position:relative;z-index:1}
+.c2__after h2{font:400 clamp(48px,7vw,110px)/1 "Instrument Serif",serif}
+.c2__after p{margin-top:14px;font:500 12px/1 var(--f-sans);letter-spacing:.2em;text-transform:uppercase}
+
+/* ===== 3 · DERGİ ===== */
+.c3{position:relative;height:calc(100vh - 116px);min-height:620px;overflow:hidden;display:grid;place-items:center;background:#efe6d9}
+.c3__type{text-transform:uppercase;position:absolute;inset:auto 0 6% 0;text-align:center;font:800 clamp(140px,26vw,420px)/.8 "Big Shoulders Display",Impact,sans-serif;color:#e3d4bf;letter-spacing:-.02em;white-space:nowrap;animation:c3in 1.6s cubic-bezier(.22,.8,.2,1) both}
+@keyframes c3in{from{transform:translateY(60px);opacity:0}}
+.c3__p{position:relative;z-index:2;height:min(64vh,600px);filter:drop-shadow(0 18px 16px rgba(0,0,0,.18)) drop-shadow(40px 60px 50px rgba(60,35,10,.25));animation:c3p 1.4s .2s cubic-bezier(.22,.8,.2,1) both}
+@keyframes c3p{from{transform:translateY(40px) scale(.94);opacity:0}}
+.c3__l{position:absolute;z-index:3;left:var(--edge);top:32px}
+.c3__coord{margin-top:10px;font:italic 400 18px "Instrument Serif",serif;color:#7a6b5d}
+.c3__r{position:absolute;z-index:3;right:var(--edge);bottom:40px;width:min(320px,40vw)}
+.c3__r h1{font:400 40px/1 "Instrument Serif",serif}
+.c3__n{margin-top:8px;font:italic 400 17px/1.3 "Instrument Serif",serif;color:#7a6b5d}
+.c3__price{margin-top:14px;font-size:16px}
+.c3__pick{position:absolute;z-index:3;left:var(--edge);bottom:40px;display:flex;flex-direction:column;gap:2px}
+.c3__pick button{text-align:left;font:500 13px/1.6 var(--f-sans);color:#a3958a;transition:color .25s,transform .3s}
+.c3__pick button:hover{color:var(--ink);transform:translateX(4px)}
+.c3__pick button[aria-pressed="true"]{color:var(--ink)}
+.c3__pick button[aria-pressed="true"]::after{content:"  ●";color:#a8601a;font-size:9px}
+.c3__strip{overflow:hidden;padding:clamp(60px,6vw,100px) 0}
+.c3__track{display:flex;gap:12px;width:max-content;animation:c3run 60s linear infinite}
+.c3__track img{height:clamp(300px,40vh,460px);aspect-ratio:3/4;object-fit:cover}
+.c3__strip:hover .c3__track{animation-play-state:paused}
+@keyframes c3run{to{transform:translateX(-50%)}}
+.c3__quote{text-align:center;padding:0 var(--edge) clamp(80px,8vw,130px)}
+.c3__quote p{max-width:900px;margin:0 auto;font:400 clamp(32px,3.6vw,56px)/1.15 "Instrument Serif",serif}
+.c3__quote span{display:block;margin-top:20px;font-size:13px;color:var(--muted)}
+
+/* ===== 4 · TEMİZ TİCARİ ===== */
+.c4{width:var(--col);max-width:1320px;margin:24px auto 0;display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+.c4__grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.c4__grid figure{margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:6px;background:#ece3d6}
+.c4__grid img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,.8,.2,1)}
+.c4__grid figure:hover img{transform:scale(1.04)}
+.c4__main{display:grid;place-items:center}
+.c4__main img{width:auto!important;height:72%!important;object-fit:contain!important;filter:drop-shadow(0 10px 10px rgba(0,0,0,.14))}
+.c4__buy{position:sticky;top:130px;padding-top:12px}
+.c4__top{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.c4__top h1{font:600 28px/1.15 var(--f-sans);letter-spacing:-.01em}
+.c4__price{font:500 18px/1 var(--f-sans);white-space:nowrap}
+.c4__rate{display:inline-flex;gap:6px;margin-top:10px;font-size:13px}
+.c4__lede{margin-top:14px;font-size:15px;line-height:1.6;color:#5d4f43}
+.c4__facts{list-style:none;margin-top:18px;border-top:1px solid rgba(23,14,9,.1)}
+.c4__facts li{display:grid;grid-template-columns:80px 1fr;padding:11px 0;border-bottom:1px solid rgba(23,14,9,.1);font-size:14px}
+.c4__facts small{font-size:12px;color:var(--muted)}
+.c4__lab{margin-top:22px;font:600 12px/1 var(--f-sans)}
+.c4__pick{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.c4__pick button{height:36px;padding:0 14px;border-radius:8px;border:1px solid rgba(23,14,9,.16);font:500 13px/1 var(--f-sans);transition:all .2s}
+.c4__pick button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.c4 .cx-add{border-radius:8px}
+.c4__tabs{display:flex;gap:20px;margin-top:28px;border-bottom:1px solid rgba(23,14,9,.12)}
+.c4__tabs button{padding:0 0 12px;font:500 13.5px/1 var(--f-sans);color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.c4__tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--ink)}
+.c4__panel{padding-top:14px;font-size:14px;line-height:1.7;color:#4b3e33}
+.c4__panel p + p{margin-top:6px}
+.c4__ben{width:var(--col);max-width:1320px;margin:clamp(80px,8vw,130px) auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
+.c4__ben img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px}
+.c4__ben b{display:block;margin-top:16px;font:600 17px/1.2 var(--f-sans)}
+.c4__ben p{margin-top:6px;font-size:14px;color:var(--muted)}
+
+/* ===== 5 · DESTİNASYON ===== */
+.c5{position:relative;min-height:calc(100vh - 116px);overflow:hidden;background:color-mix(in oklab,var(--r1) 36%,#170e09);color:#fff;transition:background-color .8s ease}
+.c5__rays{position:absolute;left:50%;top:55%;width:2400px;height:2400px;margin:-1200px 0 0 -1200px;background:repeating-conic-gradient(rgba(255,255,255,.06) 0 4deg,transparent 4deg 10deg);-webkit-mask:radial-gradient(circle,#000 0 12%,transparent 40%);mask:radial-gradient(circle,#000 0 12%,transparent 40%);animation:spin 160s linear infinite}
+.c5__head{position:relative;z-index:2;display:flex;align-items:center;gap:20px;padding:22px var(--edge);border-bottom:1px solid rgba(255,255,255,.14);overflow-x:auto}
+.c5__head p{font:500 11px/1 var(--f-sans);letter-spacing:.2em;text-transform:uppercase;opacity:.7;white-space:nowrap}
+.c5__pick{display:flex;gap:4px}
+.c5__pick button{flex:0 0 auto;height:34px;padding:0 14px;border-radius:999px;font:500 13px/1 var(--f-sans);color:rgba(255,255,255,.65);transition:all .25s}
+.c5__pick button:hover{color:#fff}
+.c5__pick button[aria-pressed="true"]{background:#fff;color:#170e09}
+.c5__body{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(20px,4vw,60px);padding:clamp(30px,5vw,70px) var(--edge)}
+.c5__place span{font:500 11px/1 var(--f-sans);letter-spacing:.2em;opacity:.75}
+.c5__place h1{margin-top:12px;font:800 clamp(64px,8vw,140px)/.85 "Big Shoulders Display",Impact,sans-serif;text-transform:uppercase;animation:c3in 1s cubic-bezier(.22,.8,.2,1) both}
+.c5__p{height:min(60vh,560px);filter:drop-shadow(0 18px 16px rgba(0,0,0,.3)) drop-shadow(40px 60px 50px rgba(0,0,0,.3));animation:c3p 1s cubic-bezier(.22,.8,.2,1) both}
+.c5__info{max-width:360px;justify-self:end}
+.c5__info h2{font:400 36px/1 "Instrument Serif",serif}
+.c5__info > p{margin-top:12px;font-size:15px;line-height:1.6;opacity:.85}
+.c5__info ul{list-style:none;margin-top:20px;border-top:1px solid rgba(255,255,255,.2)}
+.c5__info li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12);font:italic 400 19px "Instrument Serif",serif}
+.c5__info li small{font:500 11px/1.8 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;font-style:normal;opacity:.6}
+.c5__price{margin-top:18px;font-size:16px}
+.c5__price s{color:rgba(255,255,255,.55)}
+.c5 .cx-add{background:#fff;color:#170e09}
+.c5 .cx-add:hover{background:#ffd99a}
+
+@media (max-width:900px){
+  .c1,.c1__split,.c4{grid-template-columns:minmax(0,1fr)}.c1__buy,.c4__buy{position:relative;top:0}
+  .c2__dock{grid-template-columns:1fr;border-radius:18px}.c2__b{display:none}
+  .c3__r,.c3__pick{position:relative;inset:auto;width:auto}.c3{height:auto;padding:40px var(--edge);gap:20px}
+  .c4__ben{grid-template-columns:1fr}
+  .c5__body{grid-template-columns:1fr;text-align:center}.c5__info{justify-self:center}
+}
+
+/* 4 · galeri: tek büyük → ızgara */
+.c4__grid{transform-origin:0 0}
+.c4__main{grid-column:1/-1;aspect-ratio:auto!important;height:calc(100vh - 150px);min-height:480px;transform-origin:0 0}
+.c4__main img{height:66%!important}
+.c4__grid.is-grid .c4__main{grid-column:auto;aspect-ratio:4/5!important;height:auto;min-height:0}
+.c4__grid.is-grid .c4__main img{height:72%!important}
+.c4__more{display:none;opacity:0;transform:translateY(30px)}
+.c4__grid.is-grid .c4__more{display:block;animation:c4in .8s var(--d,0ms) cubic-bezier(.22,.8,.2,1) forwards}
+@keyframes c4in{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.c4__grid.is-grid .c4__more{animation:none;opacity:1;transform:none}}
+.c4__main{position:relative;display:block!important}
+.c4__main img{position:absolute;inset:0;margin:auto;width:auto!important;max-width:80%;height:64%!important;object-fit:contain!important}
+.c4__grid.is-grid .c4__main img{height:72%!important}
+.ps:not(:has(.ps__tabs)) .c3,.ps:not(:has(.ps__tabs)) .c4__buy{top:86px}
+
+/* ===== v83 galeri: kaydırmaya bağlı (AB) ===== */
+.c4__grid{position:relative;--p:0}
+.c4__main{grid-column:auto!important;aspect-ratio:4/5!important;height:auto!important;min-height:0!important;background:transparent!important;overflow:visible!important;position:relative}
+.c4__float{position:absolute;left:0;top:0;z-index:3;width:100%;height:100%;background:#fff;border-radius:6px;overflow:hidden;display:grid;place-items:center;will-change:width,height}
+.c4__float img{position:static!important;width:auto!important;max-width:78%;height:auto!important;max-height:62%;object-fit:contain!important;filter:drop-shadow(0 10px 12px rgba(0,0,0,.12))}
+.c4__more{display:block!important;animation:none!important;opacity:var(--p)!important;transform:translateY(calc((1 - var(--p)) * 40px))!important;transition:none}
+.c4__grid.is-grid .c4__main img{height:auto!important}
+/* sağ: AB tarzı akordeon */
+.c4__pick{margin-top:20px}
+.c4__acc{margin-top:30px;border-top:1px solid rgba(23,14,9,.12)}
+.c4__acc details{border-bottom:1px solid rgba(23,14,9,.12)}
+.c4__acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:20px 0;font:700 14px/1 var(--f-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.c4__acc summary::-webkit-details-marker{display:none}
+.c4__acc summary::after{content:"";width:13px;height:13px;background:linear-gradient(currentColor,currentColor) center/13px 1.5px no-repeat,linear-gradient(currentColor,currentColor) center/1.5px 13px no-repeat;transition:transform .3s}
+.c4__acc details[open] summary::after{transform:rotate(45deg)}
+.c4__acc details div{padding:0 0 20px;font-size:14px;line-height:1.7;color:#4b3e33}
+.c4__acc details div p + p{margin-top:6px}
+.c4__fn{font-size:12px;color:#a3958a}
+@media (max-width:900px){.c4__float{position:relative;width:100%!important;height:100%!important}.c4__more{opacity:1!important;transform:none!important}}
+.c4__float img{position:absolute!important;inset:0;margin:auto;height:62%!important;width:auto!important;max-width:78%;max-height:none}
+
+/* ===== v85 ürün detay: sitenin zemini, şişe seçici, ışıltılı buton, marka fontları ===== */
+.c4__float{background:var(--page)!important}
+/* başlık: şişedeki "BRONZING BOMB" gibi eğik, köşeli blok; bronz tonlarında */
+.c4__eye{font:500 11px/1 var(--f-sans);letter-spacing:.22em;text-transform:uppercase;color:#a8601a;margin-bottom:12px}
+.c4__top{align-items:flex-start}
+.c4__top h1{font:italic 800 clamp(40px,3.6vw,56px)/.92 "Saira",var(--f-name)!important;font-stretch:70%;font-variation-settings:'wdth' 70;text-transform:uppercase;letter-spacing:.005em;
+  background:linear-gradient(100deg,#7a3f0e 0%,#b8721e 45%,#d99a3a 70%,#9a5416 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.c4__price{font:500 26px/1 "Instrument Serif",Georgia,serif!important;color:#6b3a12;margin-top:6px}
+.c4__price s{font-size:16px}
+.c4__rate{color:#7a6b5d}
+.c4__rate u{color:#6b3a12}
+.c4__lede{font:italic 400 19px/1.45 "Instrument Serif",Georgia,serif!important;color:#6b5040!important}
+.c4__facts{border-top-color:rgba(168,96,26,.25)!important}
+.c4__facts li{border-bottom-color:rgba(168,96,26,.18)!important;color:#3a2a1f}
+.c4__facts small{color:#a8601a!important;letter-spacing:.06em}
+.c4__acc{border-top-color:rgba(168,96,26,.25)!important}
+.c4__acc details{border-bottom-color:rgba(168,96,26,.18)!important}
+.c4__acc summary{color:#5a3010!important}
+.c4__acc details div{color:#5d4a3a}
+.c4__acc details div b{color:#7a3f0e}
+/* şişe küçük resimleriyle seçim */
+.c4__vars{display:flex;gap:6px;margin-top:22px;overflow-x:auto;scrollbar-width:none;padding:4px 2px 8px}
+.c4__vars::-webkit-scrollbar{display:none}
+.c4__vars button{flex:0 0 56px;height:72px;display:grid;place-items:end center;padding-bottom:6px;border-radius:10px;background:rgba(255,255,255,.45);position:relative;transition:background .3s,transform .35s var(--ease)}
+.c4__vars button img{height:56px;width:auto;filter:drop-shadow(0 4px 4px rgba(0,0,0,.12));transition:transform .35s var(--ease)}
+.c4__vars button:hover img{transform:translateY(-3px)}
+.c4__vars button::after{content:"";position:absolute;left:18px;right:18px;bottom:-2px;height:2px;border-radius:2px;background:#a8601a;transform:scaleX(0);transition:transform .35s var(--ease)}
+.c4__vars button[aria-pressed="true"]{background:#fff}
+.c4__vars button[aria-pressed="true"]::after{transform:scaleX(1)}
+/* sepete ekle: bronz; ışıltı modunda üstüne gelince ürünün ışınları açılır */
+.c4__add{position:relative;overflow:hidden;isolation:isolate;border-radius:4px!important;background:linear-gradient(100deg,#5a2c0c,#8a4a14)!important;transition:color .4s}
+.c4__add > span:not(.c4__addrays){position:relative;z-index:1}
+.c4__addrays{position:absolute;left:50%;top:50%;width:900px;height:900px;margin:-450px 0 0 -450px;z-index:0;opacity:0;transform:scale(.3) rotate(-30deg);
+  background:repeating-conic-gradient(from 0deg,var(--r1,#ff3a12) 0 4.5deg,var(--r2,#d9a35a) 4.5deg 9deg);transition:opacity .5s ease,transform .9s cubic-bezier(.22,.8,.2,1)}
+[data-fx="rays"] .c4__add:hover .c4__addrays{opacity:1;transform:none;animation:spin 18s linear infinite}
+[data-fx="rays"] .c4__add:hover{text-shadow:0 1px 10px rgba(0,0,0,.45)}
+[data-fx="plain"] .c4__add:hover{background:linear-gradient(100deg,#7a3f0e,#c9822a)!important}
+.c4__fx{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:11px;color:#a3958a}
+.c4__fx span{margin-right:4px}
+.c4__fx button{height:24px;padding:0 10px;border-radius:999px;border:1px solid rgba(23,14,9,.14);font-size:11px;color:#7a6b5d}
+.c4__fx button[aria-pressed="true"]{background:#6b3a12;border-color:#6b3a12;color:#fff}
+.c4__top h1{font-stretch:70% !important;font-variation-settings:'wdth' 70 !important}
+
+/* ===== v88 ürün detay: üstten boşluk, sade tipografi, tıklanır görseller ===== */
+.ps:not(:has(.ps__tabs)) .c4{margin-top:clamp(36px,4vw,64px)}
+.c4__top h1{font:600 clamp(26px,2.1vw,32px)/1.15 "Outfit",var(--f-sans)!important;font-style:normal!important;font-stretch:100%!important;font-variation-settings:normal!important;
+  text-transform:none!important;letter-spacing:-.005em!important;background:none!important;color:#3a200c!important;-webkit-background-clip:border-box!important;background-clip:border-box!important}
+.c4__price{font:600 22px/1.2 "Outfit",var(--f-sans)!important;color:#3a200c!important;margin-top:2px}
+.c4__price s{font:400 15px "Outfit",var(--f-sans)!important}
+.c4__lede{font:400 15px/1.6 var(--f-sans)!important;font-style:normal!important;color:#6b5040!important}
+.c4__acc summary{font-family:"Outfit",var(--f-sans)!important;font-weight:600!important}
+[data-zoom]{cursor:zoom-in}
+.zoom{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:rgba(246,242,236,.97);opacity:0;transition:opacity .3s}
+.zoom.on{opacity:1}
+.zoom img{max-width:min(86vw,1100px);max-height:86vh;object-fit:contain;border-radius:4px;transform:scale(.97);transition:transform .4s cubic-bezier(.22,.8,.2,1)}
+.zoom.on img{transform:none}
+.zoom img.is-p{max-height:76vh;filter:drop-shadow(0 20px 30px rgba(0,0,0,.18))}
+.zoom__x{position:absolute;top:20px;right:24px;width:44px;height:44px;border-radius:50%;font-size:18px;color:#3a200c}
+.zoom__a{position:absolute;top:50%;translate:0 -50%;width:52px;height:52px;border-radius:50%;background:#fff;font-size:28px;line-height:1;color:#3a200c;box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.zoom__a--l{left:24px}.zoom__a--r{right:24px}
+.zoom__n{position:absolute;bottom:22px;font-size:12px;letter-spacing:.14em;color:#7a6b5d}
+
+/* ===== v90: bilgi tablosu yerine gerçek mağaza düzeni; adet; sade buton ===== */
+.c4__lede{margin-top:12px}
+.c4__notes{display:block;margin-top:6px;font-size:13.5px;color:#9a7a5c}
+.c4__size{display:flex;align-items:center;gap:12px;margin-top:22px}
+.c4__size span{font:500 13px/1 var(--f-sans);color:#6b5040}
+.c4__size button{height:36px;padding:0 16px;border-radius:999px;border:1px solid #3a200c;font:500 13px/1 var(--f-sans);color:#3a200c}
+.c4__vars{margin-top:16px}
+.c4__buyrow{display:flex;gap:10px;margin-top:18px}
+.c4__qty{display:flex;align-items:center;height:54px;border:1px solid rgba(58,32,12,.25);border-radius:4px}
+.c4__qty button{width:42px;height:100%;font-size:18px;color:#3a200c}
+.c4__qty span{min-width:22px;text-align:center;font:600 15px/1 var(--f-sans);color:#3a200c}
+.c4__buyrow .c4__add{margin:0;flex:1}
+.c4__add{background:#3a200c!important}
+.c4__add:hover{background:linear-gradient(100deg,#7a3f0e,#c9822a)!important}
+.c4__addrays,.c4__fx{display:none!important}
+
+/* ===== v92: boyut etiketi yok; adet ve sepete ekle yeniden ===== */
+.c4__size{display:none}
+.c4__meta{display:flex;align-items:center;gap:14px;margin-top:10px}
+.c4__meta .c4__rate{margin:0}
+.c4__ml{padding:4px 10px;border-radius:999px;background:rgba(122,63,14,.08);font:500 12px/1 var(--f-sans);color:#6b3a12}
+.c4__buyrow{gap:12px;margin-top:22px;align-items:stretch}
+/* adet: kapsül, yuvarlak düğmeler, rakam kayarak değişir */
+.c4__qty{height:58px;padding:0 6px;border:0;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px rgba(58,32,12,.12);gap:2px}
+.c4__qty button{width:44px;height:44px;margin:auto 0;border-radius:50%;display:grid;place-items:center;color:#3a200c;transition:background .25s,color .25s,transform .2s}
+.c4__qty button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
+.c4__qty button:hover:not(:disabled){background:#f3e6d4}
+.c4__qty button:active:not(:disabled){transform:scale(.9)}
+.c4__qty button:disabled{opacity:.25;cursor:default}
+.c4__qn{position:relative;width:30px;height:24px;margin:auto 0;overflow:hidden}
+.c4__qn i{position:absolute;inset:0;display:grid;place-items:center;font:600 17px/1 "Outfit",var(--f-sans);font-style:normal;color:#3a200c}
+.c4__qn i.in-up{animation:qIn .35s cubic-bezier(.22,.8,.2,1) both}.c4__qn i.in-dn{animation:qIn2 .35s cubic-bezier(.22,.8,.2,1) both}
+.c4__qn i.out-up{animation:qOut .35s ease both}.c4__qn i.out-dn{animation:qOut2 .35s ease both}
+@keyframes qIn{from{transform:translateY(100%);opacity:0}}@keyframes qIn2{from{transform:translateY(-100%);opacity:0}}
+@keyframes qOut{to{transform:translateY(-100%);opacity:0}}@keyframes qOut2{to{transform:translateY(100%);opacity:0}}
+/* sepete ekle: kapsül; üstüne gelince bronz soldan sağa dolar, çanta zıplar */
+.c4__add{position:relative;flex:1;height:58px;display:flex;align-items:center;gap:12px;padding:0 10px 0 24px;border-radius:999px!important;background:#3a200c!important;color:#fbf3e6;
+  font:600 13px/1 "Outfit",var(--f-sans);letter-spacing:.06em;overflow:hidden;isolation:isolate;transition:transform .2s}
+.c4__add:hover{background:#3a200c!important}
+.c4__add:active{transform:scale(.985)}
+.c4__fill{position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,#7a3f0e,#c9822a 60%,#e0a43c);transform:scaleX(0);transform-origin:left;transition:transform .55s cubic-bezier(.22,.8,.2,1)}
+.c4__add:hover .c4__fill,.c4__add.is-done .c4__fill{transform:none}
+.c4__bag{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round;transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
+.c4__add:hover .c4__bag{transform:translateY(-2px) rotate(-8deg)}
+.c4__addt{flex:1;text-align:left;text-transform:uppercase;letter-spacing:.14em;font-size:12px}
+.c4__addp{height:40px;padding:0 16px;display:grid;place-items:center;border-radius:999px;background:rgba(255,255,255,.12);font:600 14px/1 "Outfit",var(--f-sans);letter-spacing:0;transition:background .4s}
+.c4__add:hover .c4__addp{background:rgba(255,255,255,.2)}
+.c4__add.is-done .c4__bag{animation:bagPop .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bagPop{40%{transform:scale(1.35)}}
+.fly{position:fixed;z-index:400;width:80px;height:120px;object-fit:contain;pointer-events:none;filter:drop-shadow(0 8px 10px rgba(0,0,0,.2))}
+
+/* ===================== v94: 5 YENİ ÜRÜN DETAY SEÇENEĞİ (galeri davranışı ortak) ===================== */
+.c4__badge,.c4__kick{display:none}
+.c4__top h1 em{font-style:inherit}
+/* ortak: daha dolu kompozisyon, ortalı */
+.ps__root[class*=" v-"] .c4{max-width:1240px;grid-template-columns:1.15fr 1fr;gap:clamp(32px,4.5vw,72px)}
+.ps__root[class*=" v-"] .c4__float img{height:74%!important}
+
+/* ---------- A · GLOW: ürün renginde ışıklı zemin, ana sayfa başlık dili ---------- */
+.v-a .c4__float{background:radial-gradient(70% 60% at 50% 55%,color-mix(in oklab,var(--r2) 30%,#fff),var(--tint) 75%)!important}
+.v-a .c4__float::before{content:"";position:absolute;left:50%;top:55%;width:1600px;height:1600px;margin:-800px 0 0 -800px;background:repeating-conic-gradient(rgba(255,255,255,.35) 0 3deg,transparent 3deg 9deg);
+  -webkit-mask:radial-gradient(circle,#000 0 8%,transparent 32%);mask:radial-gradient(circle,#000 0 8%,transparent 32%);animation:spin 120s linear infinite}
+.v-a .c4__more img{border-radius:6px}
+.v-a .c4__kick{display:block;font:500 11px/1 var(--f-sans);letter-spacing:.24em;text-transform:uppercase;color:#a8601a;margin-bottom:14px}
+.v-a .c4__top h1{font:800 clamp(44px,4vw,64px)/.9 "Big Shoulders Display",Impact,sans-serif!important;text-transform:uppercase!important;letter-spacing:-.005em!important;
+  background:linear-gradient(100deg,#8a4a12 0%,#c9822a 45%,#e0a43c 70%,#a8601a 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+.v-a .c4__top h1 em{font:italic 400 .9em "Instrument Serif",Georgia,serif;text-transform:none;display:block}
+.v-a .c4__top{flex-direction:column;gap:14px}
+.v-a .c4__price{font-size:24px!important}
+
+/* ---------- B · KAMPANYA: brief key visual dili (bordo, sarı, sticker) ---------- */
+.v-b .c4__float{background:#f3e3cf!important;overflow:hidden}
+.v-b .c4__float::before{content:"";position:absolute;inset:-20%;background:repeating-conic-gradient(from 0deg at 50% 60%,#f6d94a 0 4deg,transparent 4deg 11deg);
+  -webkit-mask:radial-gradient(circle at 50% 60%,transparent 0 18%,#000 19% 46%,transparent 47%);mask:radial-gradient(circle at 50% 60%,transparent 0 18%,#000 19% 46%,transparent 47%);opacity:.9}
+.v-b .c4__buy{position:sticky}
+.v-b .c4__badge{position:absolute;right:0;top:-6px;display:flex;flex-direction:column;align-items:center;justify-content:center;width:84px;height:84px;border-radius:50%;background:#8f2219;color:#f6d94a;
+  font:800 30px/1 "Big Shoulders Display",sans-serif;transform:rotate(12deg);box-shadow:0 10px 24px -8px rgba(143,34,25,.6)}
+.v-b .c4__badge small{font:600 9px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-top:2px}
+.v-b .c4__kick{display:inline-block;padding:7px 12px;background:#8f2219;color:#fbeedd;font:600 10.5px/1 var(--f-sans);letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;transform:rotate(-2deg)}
+.v-b .c4__top{flex-direction:column;gap:10px;padding-right:100px}
+.v-b .c4__top h1{font:800 clamp(52px,4.8vw,78px)/.86 "Big Shoulders Display",Impact,sans-serif!important;text-transform:uppercase!important;color:#8f2219!important}
+.v-b .c4__top h1 em{color:var(--deep)}
+.v-b .c4__price{font:800 30px/1 "Big Shoulders Display",sans-serif!important;color:#8f2219!important}
+.v-b .c4__add{background:#8f2219!important}
+.v-b .c4__fill{background:linear-gradient(100deg,#c42a1f,#f6a23a)}
+.v-b .c4__addp{background:#f6d94a;color:#5a140e}
+.v-b .c4__acc summary{color:#8f2219!important}
+
+/* ---------- C · SESSİZ LÜKS: büyük harf, geniş aralık, ince çizgiler (Byredo / Le Labo) ---------- */
+.v-c .c4__float{background:#efe9df!important;border-radius:0}
+.v-c .c4__more img,.v-c .c4__grid figure{border-radius:0}
+.v-c .c4__grid{gap:2px}
+.v-c .c4__kick{display:block;font:500 10.5px/1 var(--f-sans);letter-spacing:.3em;text-transform:uppercase;color:#9a8b7d;margin-bottom:22px}
+.v-c .c4__top{flex-direction:column;gap:18px}
+.v-c .c4__top h1{font:500 22px/1.25 "Outfit",sans-serif!important;letter-spacing:.32em!important;text-transform:uppercase!important;color:#2a1a10!important}
+.v-c .c4__price{font:400 16px/1 "Outfit",sans-serif!important;letter-spacing:.08em;color:#2a1a10!important}
+.v-c .c4__lede{font-size:14px!important;line-height:1.8!important;color:#6b5d50!important;max-width:380px}
+.v-c .c4__ml,.v-c .c4__rate{font-size:11px}
+.v-c .c4__vars button{background:transparent;border-radius:0}
+.v-c .c4__vars button[aria-pressed="true"]{background:transparent}
+.v-c .c4__qty,.v-c .c4__add{border-radius:0!important}
+.v-c .c4__qty{background:transparent;box-shadow:inset 0 0 0 1px rgba(42,26,16,.3)}
+.v-c .c4__add{background:#2a1a10!important;letter-spacing:.3em}
+.v-c .c4__addp{background:transparent;border-left:1px solid rgba(255,255,255,.25);border-radius:0;padding:0 18px}
+.v-c .c4__acc summary{font:500 11px/1 "Outfit",sans-serif!important;letter-spacing:.24em!important}
+
+/* ---------- D · GECE: sağ sütun koyu panel, altın yazı ---------- */
+.v-d .c4{max-width:none;width:100%;margin-top:0!important;grid-template-columns:1.2fr 1fr;gap:0}
+.v-d .c4__grid{padding:clamp(20px,3vw,40px)}
+.v-d .c4__float{background:#efe6d9!important}
+.v-d .c4__buy{top:62px!important;min-height:calc(100vh - 62px);padding:clamp(48px,5vw,80px) clamp(32px,4vw,64px)!important;background:linear-gradient(170deg,var(--deep),#170e09 70%);color:#f3e6d4}
+.v-d .c4__kick{display:block;font:500 11px/1 var(--f-sans);letter-spacing:.24em;text-transform:uppercase;color:#e0a43c;margin-bottom:16px}
+.v-d .c4__top{flex-direction:column;gap:14px}
+.v-d .c4__top h1{font:400 clamp(44px,4vw,64px)/1 "Instrument Serif",Georgia,serif!important;text-transform:none!important;color:#fff!important}
+.v-d .c4__top h1 em{font-style:italic;color:#f0c27a}
+.v-d .c4__price{color:#f0c27a!important}.v-d .c4__price s{color:rgba(243,230,212,.45)}
+.v-d .c4__lede{color:rgba(243,230,212,.8)!important}.v-d .c4__notes{color:#e0a43c}
+.v-d .c4__rate,.v-d .c4__rate u{color:rgba(243,230,212,.7)}.v-d .c4__ml{background:rgba(255,255,255,.1);color:#f0c27a}
+.v-d .c4__vars button{background:rgba(255,255,255,.06)}.v-d .c4__vars button[aria-pressed="true"]{background:rgba(255,255,255,.18)}
+.v-d .c4__qty{background:rgba(255,255,255,.08);box-shadow:none}.v-d .c4__qty button,.v-d .c4__qn i{color:#f3e6d4}.v-d .c4__qty button:hover:not(:disabled){background:rgba(255,255,255,.12)}
+.v-d .c4__add{background:#e0a43c!important;color:#2a1a10}.v-d .c4__fill{background:linear-gradient(100deg,#f0c27a,#fff1d6)}.v-d .c4__addp{background:rgba(0,0,0,.12)}
+.v-d .c4__acc{border-color:rgba(243,230,212,.15)!important}.v-d .c4__acc details{border-color:rgba(243,230,212,.12)!important}
+.v-d .c4__acc summary{color:#f3e6d4!important}.v-d .c4__acc details div{color:rgba(243,230,212,.75)}.v-d .c4__acc details div b{color:#f0c27a}
+
+/* ---------- E · KART: ürün renginde tam zemin, sağda yüzen beyaz kart ---------- */
+.v-e{background:linear-gradient(180deg,var(--tint),var(--page) 85%)}
+.v-e .c4{padding-top:8px}
+.v-e .c4__float{background:rgba(255,255,255,.55)!important;border-radius:20px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.v-e .c4__grid figure{border-radius:20px}
+.v-e .c4__buy{padding:30px!important;border-radius:24px;background:#fff;box-shadow:0 30px 70px -40px rgba(60,35,10,.45)}
+.v-e .c4__kick{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--tint);font:600 11px/1 var(--f-sans);letter-spacing:.06em;color:#6b3a12;margin-bottom:14px}
+.v-e .c4__top h1{font:700 30px/1.1 "Outfit",sans-serif!important;color:#2a1a10!important}
+.v-e .c4__price{font:700 22px/1 "Outfit",sans-serif!important}
+.v-e .c4__vars button{border-radius:14px;background:#f6f2ec}
+.v-e .c4__qty{background:#f6f2ec;box-shadow:none}
+.v-e .c4__add{background:var(--deep)!important}
+
+@media (max-width:900px){.v-d .c4,.ps__root[class*=" v-"] .c4{grid-template-columns:minmax(0,1fr)}.v-b .c4__top{padding-right:0}.v-b .c4__badge{position:relative;top:0;margin-bottom:10px}}
+.v-c .c4__top h1 em,.v-e .c4__top h1 em{font:inherit!important;letter-spacing:inherit;text-transform:inherit}
+
+/* ===== v97: yapışkan alt sepet çubuğu (ana Sepete ekle ekrandan çıkınca) ===== */
+.c4bar{position:fixed;left:16px;right:16px;bottom:0;z-index:90;display:grid;grid-template-columns:56px 1fr auto auto 300px;align-items:center;gap:22px;padding:14px 22px 14px 18px;border-radius:20px 20px 0 0;
+  background:#fffdf9;box-shadow:0 -14px 40px rgba(58,32,12,.12);transform:translateY(110%);transition:transform .5s cubic-bezier(.22,.8,.2,1)}
+.c4bar.on{transform:none}
+.c4bar img{width:56px;height:56px;object-fit:contain}
+.c4bar b{font:600 18px/1.2 "Outfit",var(--f-sans);color:#3a200c}
+.c4bar__p{position:relative;display:flex;align-items:baseline;gap:10px;font:600 18px/1 "Outfit",var(--f-sans);color:#3a200c}
+.c4bar__p em{position:absolute;right:0;top:-20px;font:700 11px/1 var(--f-sans);letter-spacing:.06em;text-transform:uppercase;color:#a8601a;font-style:normal;white-space:nowrap}
+.c4bar__p del{font:400 14px/1 var(--f-sans);color:#a3958a}
+.c4bar .c4__qty{height:50px}
+.c4bar .c4__add{height:50px;margin:0;white-space:nowrap}
+body:has(.c4bar.on) .pop-tease{bottom:100px}
+@media (max-width:760px){.c4bar{left:0;right:0;grid-template-columns:44px 1fr auto;gap:12px;padding:10px 12px}.c4bar img{width:44px;height:44px}.c4bar b{font-size:14px}.c4bar__p,.c4bar .c4__qty{display:none}.c4bar .c4__add{grid-column:1/-1}body:has(.c4bar.on) .pop-tease{bottom:140px}}

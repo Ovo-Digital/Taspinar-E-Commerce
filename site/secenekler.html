@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bestsellers Yerine · 5 Seçenek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=16">
+<style>
+/* ---------- seçenek sayfası iskeleti ---------- */
+.o-top{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:20px;justify-content:space-between;flex-wrap:wrap;padding:14px var(--pad);background:var(--cream);border-bottom:1px solid rgba(23,14,9,.1)}
+.o-top h1{font:800 22px/1 var(--f-display);text-transform:uppercase;letter-spacing:.03em}
+.o-top nav{display:flex;gap:6px;flex-wrap:wrap}
+.o-top nav a{height:34px;padding:0 14px;display:flex;align-items:center;border:1px solid rgba(23,14,9,.18);border-radius:2px;font:600 11px/1 var(--f-sans);letter-spacing:.12em;text-transform:uppercase}
+.o-top nav a:hover{background:var(--ink);color:var(--cream)}
+.o-intro{padding:40px var(--pad) 8px;max-width:900px;color:var(--muted);font-size:15px}
+.o-intro b{color:var(--ink)}
+.o-ctx{margin:28px var(--gap) 0;height:46px;display:flex;align-items:center;justify-content:center;background:#8a5d14;color:rgba(255,255,255,.85);font:600 10.5px/1 var(--f-sans);letter-spacing:.2em;text-transform:uppercase;border-radius:2px}
+.o-ctx--after{background:var(--sand);color:var(--muted)}
+.o-note{margin:56px var(--gap) 0;padding:26px clamp(18px,3vw,36px);background:var(--ink);color:var(--cream);border-radius:2px;display:grid;grid-template-columns:auto 1fr;gap:6px 28px;scroll-margin-top:80px}
+.o-note__no{grid-row:span 4;font:900 78px/.8 var(--f-display);color:var(--signal)}
+.o-note h2{font:800 30px/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.o-note p{color:rgba(251,248,243,.78);max-width:900px;font-size:14.5px}
+.o-note p b{color:var(--cream)}
+.o-note ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px;color:rgba(251,248,243,.85)}
+.o-note li::before{content:"→ ";color:var(--signal)}
+.o-note a{text-decoration:underline;text-underline-offset:3px}
+.o-note .tag{display:inline-block;margin-right:6px;padding:4px 8px;border-radius:2px;background:rgba(255,255,255,.1);font:600 10px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase}
+
+/* ---------- ortak ---------- */
+.opt{margin:var(--gap) var(--gap) 0}
+.sec-head{padding-top:clamp(40px,5vw,72px)}
+.qbtn{height:48px;padding:0 18px;display:inline-flex;align-items:center;justify-content:space-between;gap:30px;border-radius:2px;background:var(--ink);color:var(--cream);font:600 11.5px/1 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;transition:background .3s}
+.qbtn:hover{background:var(--signal)}
+
+/* ---------- 1. Find your Bomb ---------- */
+.find{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin-top:0}
+.find__q{background:var(--sand);padding:clamp(32px,4vw,56px)}
+.find__q .h2{font-size:clamp(40px,4.4vw,68px)}
+.find__step{margin-top:30px}
+.find__step p{font:600 11px/1 var(--f-sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.find__opts{display:flex;flex-wrap:wrap;gap:8px}
+.find__opts button{display:flex;align-items:center;gap:10px;height:46px;padding:0 16px 0 10px;border:1px solid rgba(23,14,9,.16);border-radius:2px;background:var(--cream);font:500 13px/1 var(--f-sans);transition:border-color .3s,background .3s}
+.find__opts button i{width:24px;height:24px;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.find__opts button[aria-pressed="true"]{border-color:var(--ink);background:#fff}
+.find__opts.goal button{padding:0 16px}
+.find__res{position:relative;overflow:hidden;background:var(--r,#8a5d14);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 28px;min-height:560px;transition:background-color .8s ease}
+.find__res::before{content:"";position:absolute;left:50%;top:44%;width:1600px;height:1600px;margin:-800px 0 0 -800px;background:repeating-conic-gradient(rgba(255,255,255,.07) 0 4deg,transparent 4deg 10deg);-webkit-mask:radial-gradient(circle,#000 0 12%,transparent 40%);mask:radial-gradient(circle,#000 0 12%,transparent 40%)}
+.find__res > *{position:relative}
+.find__res small{font:600 10.5px/1 var(--f-sans);letter-spacing:.22em;text-transform:uppercase;opacity:.75}
+.find__res img{height:300px;margin:20px 0 18px;filter:drop-shadow(14px 22px 22px rgba(0,0,0,.3));transition:opacity .3s}
+.find__res h3{font:800 34px/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.find__res p{font:italic 19px/1.3 var(--f-serif);max-width:380px;margin-top:8px;opacity:.92}
+.find__res .qbtn{margin-top:22px;background:#fff;color:var(--ink);min-width:300px}
+.find__res .qbtn:hover{background:var(--ink);color:#fff}
+
+/* ---------- 2. How to Bomb ---------- */
+.how__grid{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:var(--gap)}
+.how__video{position:relative;overflow:hidden;border-radius:2px;min-height:460px;background:#000}
+.how__video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.how__video span{position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(251,248,243,.92);color:var(--ink);border-radius:2px;font:600 11px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase}
+.how__step{display:flex;flex-direction:column;background:var(--sand);border-radius:2px;overflow:hidden}
+.how__step figure{aspect-ratio:4/5;overflow:hidden}
+.how__step figure img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.how__step:hover figure img{transform:scale(1.05)}
+.how__step div{padding:18px 18px 22px}
+.how__step b{font:600 10.5px/1 var(--f-sans);letter-spacing:.2em;color:var(--signal)}
+.how__step h3{font:800 24px/1 var(--f-display);text-transform:uppercase;margin:8px 0 6px}
+.how__step p{color:var(--muted);font-size:13.5px}
+
+/* ---------- 3. Reviews ---------- */
+.rev{display:grid;grid-template-columns:320px 1fr;gap:var(--gap)}
+.rev__sum{background:var(--sand);padding:32px 28px;display:flex;flex-direction:column}
+.rev__big{font:800 96px/.8 var(--f-display)}
+.rev__stars{color:var(--signal);letter-spacing:3px;font-size:18px;margin:10px 0 4px}
+.rev__sum small{color:var(--muted)}
+.rev__bars{margin-top:24px;display:flex;flex-direction:column;gap:7px;font-size:12px;color:var(--muted)}
+.rev__bars div{display:grid;grid-template-columns:14px 1fr 34px;gap:10px;align-items:center}
+.rev__bars i{height:4px;background:var(--sand-2);border-radius:4px;overflow:hidden}
+.rev__bars i b{display:block;height:100%;background:var(--ink)}
+.rev__cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.rcard{background:var(--cream);border:1px solid rgba(23,14,9,.1);border-radius:2px;padding:24px 22px;display:flex;flex-direction:column}
+.rcard .rev__stars{font-size:13px;margin:0 0 14px}
+.rcard q{font:italic 22px/1.25 var(--f-serif);quotes:none;flex:1}
+.rcard footer{display:flex;align-items:center;gap:12px;margin-top:22px;padding-top:16px;border-top:1px solid rgba(23,14,9,.08)}
+.rcard footer img{width:44px;height:52px;object-fit:contain;background:var(--sand);border-radius:2px;padding:4px}
+.rcard footer b{display:block;font-size:13px}
+.rcard footer small{color:var(--muted);font-size:12px}
+.rcard__tone{display:inline-flex;align-items:center;gap:6px;margin-top:3px}
+.rcard__tone i{width:10px;height:10px;border-radius:50%;background:var(--sw)}
+.press{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
+.press div{background:var(--sand);padding:22px;display:flex;flex-direction:column;gap:10px}
+.press span{font:800 15px/1 var(--f-display);letter-spacing:.2em;text-transform:uppercase;color:rgba(27,18,12,.4)}
+.press q{font:italic 18px/1.25 var(--f-serif);quotes:none}
+
+/* ---------- 4. Manifesto ---------- */
+.man{position:relative;overflow:hidden;background:var(--espresso);color:var(--cream);padding:clamp(70px,9vw,130px) var(--pad);text-align:center}
+.man::before{content:"";position:absolute;left:50%;top:50%;width:2400px;height:2400px;margin:-1200px 0 0 -1200px;background:repeating-conic-gradient(rgba(255,59,0,.09) 0 4deg,transparent 4deg 10deg);-webkit-mask:radial-gradient(circle,#000 0 10%,transparent 38%);mask:radial-gradient(circle,#000 0 10%,transparent 38%);animation:spin 160s linear infinite}
+.man > *{position:relative}
+.man__lines{display:flex;flex-direction:column;align-items:center;gap:4px}
+.man__lines p{font:800 clamp(40px,6.4vw,104px)/.92 var(--f-display);text-transform:uppercase;color:rgba(251,248,243,.14);transition:color .6s var(--ease)}
+.man__lines p em{font-size:.92em}
+.man__lines p.is-lit{color:var(--cream)}
+.man__lines p.is-lit em{color:var(--signal)}
+.man__collage{display:flex;justify-content:center;gap:14px;margin-top:56px}
+.man__collage img{width:150px;height:190px;object-fit:cover;border-radius:2px;transform:rotate(var(--r));box-shadow:0 20px 40px -18px rgba(0,0,0,.7);clip-path:polygon(0 3%,8% 0,22% 2%,40% 0,61% 3%,78% 0,100% 2%,98% 30%,100% 58%,97% 82%,100% 100%,74% 97%,52% 100%,30% 97%,10% 100%,0 96%,2% 64%,0 36%)}
+.man .qbtn{margin-top:44px;background:var(--cream);color:var(--ink)}
+.man .qbtn:hover{background:var(--signal);color:#fff}
+
+/* ---------- 5. Shop the look ---------- */
+.look{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.look__img{position:relative;overflow:hidden;border-radius:2px;background:#e33}
+.look__img img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;max-height:820px}
+.hot{position:absolute;left:var(--x);top:var(--y);width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,.6);animation:pulse 2.2s infinite;display:grid;place-items:center;font:500 18px/1 var(--f-sans);color:var(--ink)}
+.hot[aria-expanded="true"]{background:var(--ink);color:#fff;animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 14px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+.look__list{background:var(--sand);padding:clamp(28px,4vw,52px);display:flex;flex-direction:column}
+.look__list .h2{font-size:clamp(40px,4.4vw,68px)}
+.look__list > p{color:var(--muted);margin-top:14px;max-width:420px}
+.litem{display:grid;grid-template-columns:76px 1fr auto;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(23,14,9,.1);transition:background .3s,padding .4s var(--ease)}
+.litem:first-of-type{margin-top:26px;border-top:1px solid rgba(23,14,9,.1)}
+.litem.is-on{background:var(--cream);padding-left:12px;padding-right:12px}
+.litem img{height:92px;width:76px;object-fit:contain}
+.litem b{font:800 20px/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.litem small{display:block;color:var(--muted);font-size:12.5px;margin-top:5px}
+.litem button{width:40px;height:40px;border-radius:2px;background:var(--ink);color:#fff;font-size:18px}
+.litem button:hover{background:var(--signal)}
+.look__total{margin-top:auto;padding-top:26px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+
+@media (max-width:900px){
+  .find,.look,.rev{grid-template-columns:1fr}
+  .how__grid{grid-template-columns:1fr 1fr}
+  .how__video{grid-column:1/-1;min-height:300px}
+  .rev__cards,.press{grid-template-columns:1fr}
+  .man__collage img{width:90px;height:120px}
+  .o-note{grid-template-columns:1fr}.o-note__no{grid-row:auto;font-size:56px}
+}
+</style>
+</head>
+<body>
+
+<header class="o-top" lang="tr">
+  <h1>Bestsellers yerine · 5 seçenek</h1>
+  <nav>
+    <a href="#o1">1 · Find your Bomb</a>
+    <a href="#o2">2 · How to Bomb</a>
+    <a href="#o3">3 · Reviews</a>
+    <a href="#o4">4 · Manifesto</a>
+    <a href="#o5">5 · Shop the look</a>
+  </nav>
+</header>
+
+<p class="o-intro" lang="tr">Her seçenek <b>Bomb Gang şeridinin hemen altına</b> girecek şekilde, sitenin font, renk ve boşluk sistemiyle hazırlandı. Siyah kutular sana not: ne olduğu, neden işe yaradığı ve kimde gördüğümüz. Altındaki bölüm ise sitede görüneceği hali, hepsi tıklanabilir. <b>Yorum sayıları, basın alıntıları ve fiyatlar yer tutucu.</b></p>
+
+<!-- ================= 1 ================= -->
+<section lang="tr" class="o-note" id="o1">
+  <span class="o-note__no">1</span>
+  <h2>Find your Bomb · ton bulucu</h2>
+  <p><b>Ne:</b> Müşteri ten rengini ve istediği bronzluğu seçiyor, site ona tek bir Bomb öneriyor ve o ürünün renginde gösteriyor.</p>
+  <p><b>Neden:</b> Bronzlaştırıcıda en büyük kararsızlık "bana hangisi?" sorusu. Bu bölüm, 10 renkli şeridi görüp kararsız kalan müşteriyi tek ürüne indiriyor. Rengini seçince arka plan değişiyor, Bomb Gang ile aynı mantık, siteyle bütün.</p>
+  <ul id="ex1">
+  <li><span class="tag">Örnek</span><a href="https://uk.balibodyco.com" target="_blank">Bali Body</a>: sayfanın ortasında "Shop by Shade" kutuları (Light / Medium / Dark / Ultra Dark), altta "2 dakikalık ton testi".</li>
+  <li><span class="tag">Örnek</span><a href="https://rarebeauty.com" target="_blank">Rare Beauty</a>: çok satanlar şeridinin hemen altında 4 adımlı "Foundation Shade Finder". <a href="https://fentybeauty.com" target="_blank">Fenty</a>: sayfa ortasında "Find your shade" bandı.</li>
+  <li><span class="tag">Veri</span>TULA'da ton testini kullananlar 4 kat fazla satın almış (testi 6 adımdan 3'e indirince). Cosnova'da ton bulucu sepete eklemeyi %20 artırmış. İkisi de firmaların kendi açıkladığı rakamlar.</li>
+  <li><span class="tag">Risk</span>Uzun test sıkar; bizde 2 soru, tek ekran.</li>
+  </ul>
+</section>
+<div class="o-ctx" lang="tr">↑ Bomb Gang şeridi burada biter</div>
+<section class="opt find">
+  <div class="find__q">
+    <p class="eyebrow">Not sure where to start?</p>
+    <h2 class="h2">Find your <em>Bomb.</em></h2>
+    <div class="find__step">
+      <p>01 · Your skin</p>
+      <div class="find__opts" id="fSkin">
+        <button aria-pressed="false" data-v="fair" style="--sw:#f1d3bd"><i></i>Fair</button>
+        <button aria-pressed="true" data-v="medium" style="--sw:#dcb08a"><i></i>Medium</button>
+        <button aria-pressed="false" data-v="olive" style="--sw:#bf8f63"><i></i>Olive</button>
+        <button aria-pressed="false" data-v="deep" style="--sw:#87563a"><i></i>Deep</button>
+      </div>
+    </div>
+    <div class="find__step">
+      <p>02 · Your glow</p>
+      <div class="find__opts goal" id="fGoal">
+        <button aria-pressed="false" data-v="kissed">Sun-kissed</button>
+        <button aria-pressed="true" data-v="golden">Golden</button>
+        <button aria-pressed="false" data-v="deep">Deep bronze</button>
+        <button aria-pressed="false" data-v="shimmer">With shimmer</button>
+      </div>
+    </div>
+  </div>
+  <div class="find__res" id="fRes">
+    <small>Your match</small>
+    <img id="fImg" src="assets/bomb/gold.webp" alt="">
+    <h3 id="fName">Bronzing Bomb</h3>
+    <p id="fWhy">Our original golden bronze, built up evenly on medium skin.</p>
+    <button class="qbtn"><span>Add to bag</span><span id="fPrice">$38</span></button>
+  </div>
+</section>
+<div class="o-ctx o-ctx--after" lang="tr">↓ Meet Eda bölümü buradan devam eder</div>
+
+<!-- ================= 2 ================= -->
+<section lang="tr" class="o-note" id="o2">
+  <span class="o-note__no">2</span>
+  <h2>How to Bomb · kullanım rehberi</h2>
+  <p><b>Ne:</b> Kısa bir video ve 3 adım: çalkala ve sık, dağıt, güneşe çık. Altında tek cümlelik ipuçları.</p>
+  <p><b>Neden:</b> Bronzlaştırıcı yağda müşterinin korkusu "lekeler mi, nasıl sürülür?" sorusu. Kullanımı göstermek iade ve kötü yorumları azaltır, ilk kez alanı ikna eder. Tamamen bilgi, satış baskısı yok.</p>
+  <ul id="ex2">
+  <li><span class="tag">Örnek</span><a href="https://tan-luxe.com" target="_blank">Tan-Luxe</a>: sayfanın alt yarısında "How To's" bloğu, rehberlere yönlendiriyor. <a href="https://bondisands.com" target="_blank">Bondi Sands</a>: altta "Glow Tips" yazıları.</li>
+  <li><span class="tag">Veri</span>İnsanların %91'i bir ürünü anlamak için açıklama videosu izlemiş (Wyzowl).</li>
+  <li><span class="tag">Risk</span>Araştırmada baktığımız 15 sitenin hiçbiri ana sayfaya tam adım adım rehber koymamış, hepsi ayrı sayfaya veya ürün sayfasına taşımış. Ana sayfada satışı yavaşlatabilir.</li>
+  </ul>
+</section>
+<div class="o-ctx" lang="tr">↑ Bomb Gang şeridi burada biter</div>
+<section class="opt how">
+  <header class="sec-head" style="padding-left:calc(var(--pad) - var(--gap));padding-right:calc(var(--pad) - var(--gap))">
+    <div><p class="eyebrow">Three steps to golden</p><h2 class="h2">How to <em>Bomb.</em></h2></div>
+    <div class="sec-head__side"><a href="#" class="link">Full tanning guide</a></div>
+  </header>
+  <div class="how__grid">
+    <div class="how__video"><video src="assets/img/hero.mp4" autoplay muted loop playsinline></video><span>▶ Watch the 30-sec tutorial</span></div>
+    <article class="how__step"><figure><img src="assets/img/panel-best.jpg" alt=""></figure><div><b>01</b><h3>Shake &amp; spray</h3><p>Hold 20 cm away and mist in long, even strokes. One grenade, every angle.</p></div></article>
+    <article class="how__step"><figure><img src="assets/img/panel-bronze.jpg" alt=""></figure><div><b>02</b><h3>Blend it in</h3><p>Smooth with your palms. Dry-touch oil, no sticky finish, no streaks.</p></div></article>
+    <article class="how__step"><figure><img src="assets/img/panel-body.jpg" alt=""></figure><div><b>03</b><h3>Soak up the stares</h3><p>Reapply after swimming. Finish with Cooling Bomb when the sun goes down.</p></div></article>
+  </div>
+</section>
+<div class="o-ctx o-ctx--after" lang="tr">↓ Meet Eda bölümü buradan devam eder</div>
+
+<!-- ================= 3 ================= -->
+<section lang="tr" class="o-note" id="o3">
+  <span class="o-note__no">3</span>
+  <h2>Reviews · müşteri yorumları ve basın</h2>
+  <p><b>Ne:</b> Solda ortalama puan ve yıldız dağılımı, sağda 3 öne çıkan yorum (ten rengi ve ürünüyle), altta basından 4 kısa alıntı. Yorumlar ve alıntılar örnek metin; gerçek basın çıkınca logolar gelecek.</p>
+  <p><b>Neden:</b> Amerika pazarına yeni giren bir marka için en büyük eksik güven. Yorum ve basın bölümü "bu ürünü başkaları da kullanıyor" dedirtir. Shopify'a geçince yorum uygulamasından otomatik dolar.</p>
+  <ul id="ex3">
+  <li><span class="tag">Örnek</span><a href="https://vacation.inc" target="_blank">Vacation</a>: hero'da "4.8/5 · 13.457 yorum", altında basın logoları, aşağıda yorum alıntıları. <a href="https://uk.balibodyco.com" target="_blank">Bali Body</a>: basın logoları + "10 bin yorum, 3,8 milyon satış" bandı. <a href="https://augustinusbader.com/en-eu" target="_blank">Augustinus Bader</a>: "250+ ödül" bölümü.</li>
+  <li><span class="tag">Veri</span>Northwestern Üniversitesi araştırması: 5 yorumu olan ürünün satın alınma ihtimali, hiç yorumu olmayana göre %270 daha yüksek. Güzellik alışverişçilerinin %79'u önce ortalama puana bakıyor (PowerReviews, 10.646 kişi).</li>
+  <li><span class="tag">Risk</span>Amerika'da yeni açılışta gerçek yorum olmayacak. Kusursuz 5.0 puan güveni düşürüyor; 4.5–4.8 daha inandırıcı. Yorumlar birikene kadar basın alıntılarıyla başlamak lazım.</li>
+  </ul>
+</section>
+<div class="o-ctx" lang="tr">↑ Bomb Gang şeridi burada biter</div>
+<section class="opt">
+  <header class="sec-head" style="padding-left:calc(var(--pad) - var(--gap));padding-right:calc(var(--pad) - var(--gap))">
+    <div><p class="eyebrow">12,400+ bronzed reviews</p><h2 class="h2">Soak up <em>the praise.</em></h2></div>
+    <div class="sec-head__side"><a href="#" class="link">Read all reviews</a></div>
+  </header>
+  <div class="rev">
+    <div class="rev__sum">
+      <span class="rev__big">4.9</span>
+      <span class="rev__stars">★★★★★</span>
+      <small>Based on 12,438 reviews</small>
+      <div class="rev__bars">
+        <div>5<i><b style="width:88%"></b></i>88%</div>
+        <div>4<i><b style="width:8%"></b></i>8%</div>
+        <div>3<i><b style="width:2%"></b></i>2%</div>
+        <div>2<i><b style="width:1%"></b></i>1%</div>
+        <div>1<i><b style="width:1%"></b></i>1%</div>
+      </div>
+    </div>
+    <div class="rev__cards">
+      <article class="rcard"><span class="rev__stars">★★★★★</span><q>Two sprays and I looked like I'd been in Mykonos for a week. The bottle lives on my vanity now.</q><footer><img src="assets/thumb/gold.webp" alt=""><div><b>Jessica R. · Verified</b><small>Bronzing Bomb</small><small class="rcard__tone" style="--sw:#dcb08a"><i></i>Medium skin</small></div></footer></article>
+      <article class="rcard"><span class="rev__stars">★★★★★</span><q>Finally a bronzer that isn't orange on deep skin. Miami Extreme gives me that glow under lights.</q><footer><img src="assets/thumb/miami.webp" alt=""><div><b>Aaliyah M. · Verified</b><small>Miami Extreme</small><small class="rcard__tone" style="--sw:#87563a"><i></i>Deep skin</small></div></footer></article>
+      <article class="rcard"><span class="rev__stars">★★★★★</span><q>Not sticky at all, smells like vacation. I get asked what I'm wearing every single time.</q><footer><img src="assets/thumb/caprice.webp" alt=""><div><b>Sofia K. · Verified</b><small>Caprice Bomb Parfum</small><small class="rcard__tone" style="--sw:#f1d3bd"><i></i>Fair skin</small></div></footer></article>
+    </div>
+    <div class="press">
+      <div><span>Press logo</span><q>The bottle everyone's photographing this summer.</q></div>
+      <div><span>Press logo</span><q>A glow that reads expensive.</q></div>
+      <div><span>Press logo</span><q>Bold, bronzed and impossible to ignore.</q></div>
+      <div><span>Press logo</span><q>The main-character tan.</q></div>
+    </div>
+  </div>
+</section>
+<div class="o-ctx o-ctx--after" lang="tr">↓ Meet Eda bölümü buradan devam eder</div>
+
+<!-- ================= 4 ================= -->
+<section lang="tr" class="o-note" id="o4">
+  <span class="o-note__no">4</span>
+  <h2>Manifesto · brief'in sesi</h2>
+  <p><b>Ne:</b> Ajansın brief'teki cümleleri koyu zeminde büyük yazıyla. Kaydırdıkça satırlar tek tek yanıyor, altında yırtık kağıt kolajlı kampanya fotoğrafları (brief'teki kolaj dili).</p>
+  <p><b>Neden:</b> Ürünleri zaten iki bölüm gösterdi. Burada nefes alınıyor ve markanın tavrı söyleniyor: "neden bu marka?" sorusunun cevabı. Brief'le bire bir uyumlu, bölüm de kısa.</p>
+  <ul id="ex4">
+  <li><span class="tag">Örnek</span><a href="https://tan-luxe.com" target="_blank">Tan-Luxe</a>: sayfa ortasında "We Tossed Out the Tanning Rulebook" manifesto bandı. <a href="https://vacation.inc" target="_blank">Vacation</a>: ürünler arasında art arda marka cümleleri. <a href="https://augustinusbader.com/en-eu" target="_blank">Augustinus Bader</a>: "Our Science is Unique" bloğu.</li>
+  <li><span class="tag">Veri</span>Bu tür bölümün satışa etkisine dair veri bulunamadı. Değeri markayı akılda tutmak.</li>
+  <li><span class="tag">Risk</span>Doğrudan satmaz, süs gibi görünürse atlanır. O yüzden altında bir buton şart; Vacation ve Tan-Luxe da öyle yapıyor.</li>
+  </ul>
+</section>
+<div class="o-ctx" lang="tr">↑ Bomb Gang şeridi burada biter</div>
+<section class="opt man" id="manifesto">
+  <div class="man__lines" id="manLines">
+    <p>Confidence</p>
+    <p>isn't <em>optional.</em></p>
+    <p>Be bold. Be bronze.</p>
+    <p>Be <em>unforgettable.</em></p>
+    <p>Outshine everyone.</p>
+  </div>
+  <div class="man__collage">
+    <img src="assets/img/kv-ibiza.jpg" alt="" style="--r:-5deg;object-position:20% 50%">
+    <img src="assets/img/kv-miami.jpg" alt="" style="--r:3deg;object-position:94% 50%">
+    <img src="assets/img/story-eda.jpg" alt="" style="--r:-2deg">
+    <img src="assets/img/kv-chaos.jpg" alt="" style="--r:4deg;object-position:6% 50%">
+    <img src="assets/img/kv-tulum.jpg" alt="" style="--r:-3deg;object-position:30% 50%">
+  </div>
+  <a href="#" class="qbtn"><span>Tanning for the bold</span><span>→</span></a>
+</section>
+<div class="o-ctx o-ctx--after" lang="tr">↓ Meet Eda bölümü buradan devam eder</div>
+
+<!-- ================= 5 ================= -->
+<section lang="tr" class="o-note" id="o5">
+  <span class="o-note__no">5</span>
+  <h2>Shop the look · alışverişli kampanya</h2>
+  <p><b>Ne:</b> Eda'nın kampanya fotoğrafında elindeki şişenin üstünde bir nokta var. Noktaya basınca sağdaki listede o ürün öne çıkıyor. Altında "rutinini tamamla" ürünleri; tek tek ya da hepsini birden sepete ekleme.</p>
+  <p><b>Neden:</b> Ünlü yüzlü bir markada en güçlü satış görseli Eda'nın kendisi. "Eda ne kullanıyor?" merakını doğrudan sepete çeviriyor. Kampanya görseli değiştikçe bölüm de tazelenir.</p>
+  <ul id="ex5">
+  <li><span class="tag">Örnek</span><a href="https://bondisands.com" target="_blank">Bondi Sands</a>: tam bizim sıramızla, ürün şeridinin hemen altında üzerinde ürün noktaları olan 3 görsel. <a href="https://augustinusbader.com/en-eu" target="_blank">Augustinus Bader</a>: kampanya görseli + hızlı alışveriş kartları. <a href="https://fentybeauty.com" target="_blank">Fenty</a>: "Spotted on your socials, shop now" bandı.</li>
+  <li><span class="tag">Veri</span>Bazaarvoice: görsel içerikle etkileşen alışverişçiler %111 daha fazla satın almış. River Island'da alışverişli galeriler dönüşümü %184, sepet tutarını %45 artırmış. Güzellik alışverişçilerinin %97'si gerçek kullanıcı görseli arıyor (PowerReviews). Firma rakamları.</li>
+  <li><span class="tag">Risk</span>Noktalar telefonda küçük kalabilir, bu yüzden yanına liste koydum. Şeritteki ürünleri tekrar etmemek için parfüm ve vücut ürünlerini öne çıkarıyor.</li>
+  </ul>
+</section>
+<div class="o-ctx" lang="tr">↑ Bomb Gang şeridi burada biter</div>
+<section class="opt look">
+  <div class="look__img">
+    <img src="assets/img/story-eda.jpg" alt="Eda Taşpınar holding two Bronzing Bombs">
+    <button class="hot" style="--x:73%;--y:58%" data-k="gold" aria-expanded="false" aria-label="Bronzing Bomb">+</button>
+  </div>
+  <div class="look__list">
+    <p class="eyebrow">Eda's summer edit</p>
+    <h2 class="h2">Shop <em>the look.</em></h2>
+    <p>Everything Eda is wearing in the campaign, from the bronze to the scent.</p>
+    <div class="litem" data-k="gold"><img src="assets/thumb/gold.webp" alt=""><div><b>Bronzing Bomb</b><small>The Original · 200 ml · $38</small></div><button aria-label="Add">+</button></div>
+    <p class="eyebrow" style="margin:26px 0 0">Complete her ritual</p>
+    <div class="litem" data-k="cooling"><img src="assets/thumb/cooling.webp" alt=""><div><b>Cooling Bomb</b><small>After-sun gel · 200 ml · $32</small></div><button aria-label="Add">+</button></div>
+    <div class="litem" data-k="caprice"><img src="assets/thumb/caprice.webp" alt=""><div><b>Caprice</b><small>Bomb Parfum · EDP 100 ml · $68</small></div><button aria-label="Add">+</button></div>
+    <div class="look__total"><span><b>$138</b> for the full look</span><button class="qbtn"><span>Add all to bag</span><span>+</span></button></div>
+  </div>
+</section>
+<div class="o-ctx o-ctx--after" lang="tr">↓ Meet Eda bölümü buradan devam eder</div>
+<div style="height:80px"></div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  /* 1 · Find your Bomb */
+  const P = {
+    kissed:  { k: 'tulum',   name: 'Tulum',           price: 42, bg: '#8c7a5c', why: 'A soft, natural first bronze' },
+    golden:  { k: 'gold',    name: 'Bronzing Bomb',   price: 38, bg: '#8a5d14', why: 'Our original golden bronze' },
+    deep:    { k: 'miami',   name: 'Miami Extreme',   price: 42, bg: '#a3215f', why: 'Our deepest, most intense bronze' },
+    shimmer: { k: 'sttropez',name: 'Glitter Bomb',    price: 44, bg: '#4d1820', why: 'Bronze with a fine golden shimmer' },
+  };
+  const SKIN = { fair: 'build it up slowly on fair skin', medium: 'built up evenly on medium skin', olive: 'made for olive skin that tans fast', deep: 'rich enough to show on deep skin' };
+  const sel = { skin: 'medium', goal: 'golden' };
+  const render = () => {
+    const p = P[sel.goal];
+    $('#fRes').style.setProperty('--r', p.bg);
+    const im = $('#fImg'); im.style.opacity = 0;
+    setTimeout(() => { im.src = `assets/bomb/${p.k}.webp`; im.style.opacity = 1; }, 180);
+    $('#fName').textContent = p.name; $('#fPrice').textContent = '$' + p.price;
+    $('#fWhy').textContent = `${p.why}, ${SKIN[sel.skin]}.`;
+  };
+  [['#fSkin', 'skin'], ['#fGoal', 'goal']].forEach(([id, key]) => $(id).addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    $$('button', $(id)).forEach(x => x.setAttribute('aria-pressed', x === b));
+    sel[key] = b.dataset.v; render();
+  }));
+  /* 4 · Manifesto: satırlar ekranın ortasına gelince yanar */
+  const lines = $$('#manLines p');
+  const lit = () => { const mid = innerHeight * .62; lines.forEach(l => l.classList.toggle('is-lit', l.getBoundingClientRect().top < mid)); };
+  addEventListener('scroll', lit, { passive: true }); lit();
+  /* 5 · Shop the look */
+  const focus = k => {
+    $$('.hot').forEach(h => h.setAttribute('aria-expanded', h.dataset.k === k));
+    $$('.litem').forEach(l => l.classList.toggle('is-on', l.dataset.k === k));
+  };
+  $$('.hot').forEach(h => h.addEventListener('click', () => focus(h.dataset.k)));
+  $$('.litem').forEach(l => l.addEventListener('mouseenter', () => focus(l.dataset.k)));
+})();
+</script>
+</body>
+</html>

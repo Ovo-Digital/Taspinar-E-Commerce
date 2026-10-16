@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mağaza — Eda Taşpınar</title>
+<meta name="description" content="Eda Taşpınar: bronzlaştırıcı, parfüm ve vücut ışıltısı. Outshine everyone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@600;700;800&family=Saira:ital,wdth,wght@0,62.5..100,600..800;1,62.5..100,600..800&family=Anton&family=Outfit:wght@400;500;600;700;800&family=Big+Shoulders+Display:wght@800&family=Instrument+Serif:ital@0;1&family=Bodoni+Moda:opsz,wght@6..96,400&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=105">
+<script>(function(){var t=new URLSearchParams(location.search).get("bg");try{t=t||localStorage.getItem("eda-bg");if(new URLSearchParams(location.search).has("palet"))localStorage.removeItem("eda-pal-off")}catch(e){}if(t)document.documentElement.setAttribute("data-bg",t)})();</script>
+</head>
+<body class="page-inner">
+
+<header class="header" id="header">
+  <div class="header__inner">
+    <button class="header__burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mmenu"><i><span></span><span></span></i><b>Menü</b></button>
+    <a class="header__logo" href="index.html" aria-label="Eda Taşpınar anasayfa">
+      <img src="assets/img/logo-eda.png" alt="">
+    </a>
+    <div class="header__tools">
+      <button aria-label="Ara" class="icon-btn">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      </button>
+      <button aria-label="Hesabım" class="icon-btn hide-sm">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.4-3.6 4.2-5.2 7.5-5.2s6.1 1.6 7.5 5.2"/></svg>
+      </button>
+      <button aria-label="Sepet" class="icon-btn bag-btn" id="bagBtn">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 016 0V8"/></svg>
+        <span class="bag-count" id="bagCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mmenu" id="mmenu" aria-hidden="true"></div>
+
+<main>
+  <section class="plp-hero plp-hero--photo" id="plpHero">
+    <img class="plp-hero__img" id="plpImg" alt="">
+    <div class="plp-hero__copy">
+      <p class="chno" id="plpEye"></p>
+      <h1 class="glowtype" id="plpTitle"></h1>
+      <p class="plp-hero__lede" id="plpLede"></p>
+    </div>
+  </section>
+
+  <div class="plp-tools" id="plpTools">
+    <div class="plp-tools__l">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Anasayfa</a><span>/</span><b id="plpCrumb"></b></nav>
+      <span class="plp-tools__count" id="plpCount"></span>
+    </div>
+    <div class="plp-tools__r">
+      <button class="tbtn" id="fltBtn" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4"/></svg>Filtrele<i id="fltN"></i></button>
+      <div class="dd" id="sortDd">
+        <button class="tbtn" id="sortBtn" aria-expanded="false"><span>Sırala:</span> <b id="sortLbl">Öne çıkanlar</b><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="dd__menu" role="listbox">
+          <li data-v="feat">Öne çıkanlar</li><li data-v="low">Fiyat: artan</li><li data-v="high">Fiyat: azalan</li><li data-v="az">A–Z</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flt" id="flt">
+      <div class="flt__grp" id="fltType"><p>Tür</p><div class="flt__chips"></div></div>
+      <div class="flt__grp" id="fltPrice"><p>Fiyat</p><div class="flt__chips"></div></div>
+      <button class="flt__clear" id="fltClear">Temizle</button>
+    </div>
+  </div>
+  <section class="pgrid" id="plpGrid"></section>
+  <p class="plp-empty" id="plpEmpty" hidden>Bu filtrelere uygun ürün yok. <button id="fltClear2">Filtreleri temizle</button></p>
+</main>
+
+<footer class="ft">
+  <div class="ft__in">
+    <div class="ft__head">
+      <h2 class="ft__t"><em>Outshine</em> everyone</h2>
+      <form class="ft__form" onsubmit="event.preventDefault();this.classList.add('is-done')">
+        <input type="email" required placeholder="E-posta adresin" aria-label="E-posta">
+        <button type="submit">Kaydol</button>
+        <span class="ft__thanks">Listedesin. Güneşte görüşürüz.</span>
+      </form>
+      <p class="ft__text">Yeni ürünler ve kampanyalardan ilk sen haberdar ol.</p>
+    </div>
+    <nav class="ft__cols">
+      <div><h4>Alışveriş</h4><a href="koleksiyon.html?c=bronzing">Bronzlaştırıcı</a><a href="koleksiyon.html?c=parfum">Bomb Parfum</a><a href="koleksiyon.html?c=illusion">Illusion</a><a href="koleksiyon.html?c=fragrance">Parfüm &amp; Mist</a></div>
+      <div><h4>Yardım</h4><a href="#">Kargo</a><a href="#">İade &amp; değişim</a><a href="#">Sıkça sorulanlar</a><a href="#">İletişim</a></div>
+      <div><h4>Eda</h4><a href="index.html#eda">Hikâyesi</a><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">YouTube</a></div>
+    </nav>
+  </div>
+  <div class="ft__bottom">
+    <img src="assets/img/logo-eda.png" alt="Eda Taşpınar">
+    <span>© 2026 Eda Taşpınar®</span>
+    <span class="ft__legal"><a href="#">KVKK</a><a href="#">Gizlilik</a><a href="#">Kullanım koşulları</a></span>
+  </div>
+</footer>
+
+<!-- SEPET ÇEKMECESİ -->
+<div class="drawer-bg" id="drawerBg"></div>
+<aside class="drawer" id="drawer" aria-label="Sepet">
+  <div class="drawer__head">
+    <h3>Sepetin</h3>
+    <button class="icon-btn" id="drawerClose" aria-label="Sepeti kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="drawer__ship" id="drawerShip"></div>
+  <div class="drawer__items" id="drawerItems"></div>
+  <div class="drawer__foot">
+    <div class="drawer__total"><span>Ara toplam</span><strong id="drawerTotal">₺0</strong></div>
+    <button class="btn btn--dark btn--full">Sepete git ve öde</button>
+  </div>
+</aside>
+
+<script src="data.js?v=89"></script>
+<script src="main.js?v=105"></script>
+<script src="shop.js?v=89"></script>
+</body>
+</html>

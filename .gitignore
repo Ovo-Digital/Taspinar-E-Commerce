@@ -1,0 +1,14 @@
+# Beyaz liste: sadece aşağıda "!" ile açılanlar repoya girer
+/*
+!/.gitignore
+!/README.md
+!/serve.py
+!/site/
+
+# site içinde repoya girmeyenler
+/site/_eski-v*
+/site/assets/ref/kampanya/
+/site/assets/ref/urun2/
+.DS_Store
+
+# Bilerek dışarıda: EdaTaşpınar.Brief.pdf (gizli), themeforest-jolie (lisanslı tema), _eski yedekleri, ekran görüntüleri

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eda Taşpınar — Outshine Everyone</title>
+<meta name="description" content="Eda Taşpınar: bronzlaştırıcı, parfüm ve vücut ışıltısı. Outshine everyone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@600;700;800&family=Saira:ital,wdth,wght@0,62.5..100,600..800;1,62.5..100,600..800&family=Anton&family=Outfit:wght@400;500;600;700;800&family=Big+Shoulders+Display:wght@800&family=Instrument+Serif:ital@0;1&family=Bodoni+Moda:opsz,wght@6..96,400&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=105">
+<script>(function(){var t=new URLSearchParams(location.search).get("bg");try{t=t||localStorage.getItem("eda-bg");if(new URLSearchParams(location.search).has("palet"))localStorage.removeItem("eda-pal-off")}catch(e){}if(t)document.documentElement.setAttribute("data-bg",t)})();</script>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header__inner">
+    <button class="header__burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mmenu"><i><span></span><span></span></i><b>Menü</b></button>
+    <a class="header__logo" href="index.html" aria-label="Eda Taşpınar anasayfa">
+      <img src="assets/img/logo-eda.png" alt="">
+    </a>
+    <div class="header__tools">
+      <button aria-label="Ara" class="icon-btn">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      </button>
+      <button aria-label="Hesabım" class="icon-btn hide-sm">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.4-3.6 4.2-5.2 7.5-5.2s6.1 1.6 7.5 5.2"/></svg>
+      </button>
+      <button aria-label="Sepet" class="icon-btn bag-btn" id="bagBtn">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 016 0V8"/></svg>
+        <span class="bag-count" id="bagCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mmenu" id="mmenu" aria-hidden="true"></div>
+
+<main id="top">
+
+  <!-- 1. HERO -->
+  <section class="hero">
+    <video class="hero__video" id="heroVideo" src="assets/img/hero.mp4" poster="assets/img/kv-born.jpg" autoplay muted loop playsinline></video>
+    <div class="hero__shade"></div>
+    <div class="hero__content">
+      <div class="hero__ctas reveal-up">
+        <a href="koleksiyon.html?c=bronzing" class="btn btn--light">Bomb'u keşfet</a>
+        <a href="#shop" class="btn btn--ghost">Koleksiyonları keşfet</a>
+      </div>
+    </div>
+    <button class="hero__pause" id="heroPause" aria-label="Videoyu durdur">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg>
+    </button>
+  </section>
+
+  <!-- 2. KOLEKSİYON AKORDİYONU (Augustinus Bader yapısı) -->
+  <header class="lhead lhead--c">
+    <h2 class="lhead__t"><em>Find</em> your glow</h2>
+  </header>
+  <div class="stack" id="stack">
+  <section class="acc" id="shop">
+    <div class="acc__row" id="acc">
+      <article class="acc__card" data-ch="ch-bronzing" data-cat="bronzing" data-tray="gold,miami,copacabana,ibiza,chaos" data-all="Bronzlaştırıcıları keşfet" data-motto="You are the golden hour.">
+        <img class="acc__img" src="assets/img/panel-skin.jpg" alt="Omzunda eli duran bronz ten" decoding="sync" fetchpriority="high">
+        <h3 class="acc__label">Bronzlaştırıcı</h3>
+      </article>
+      <article class="acc__card" data-ch="d-parfum" data-cat="parfum" data-tray="caprice,chaoselixir,mondieu,regina" data-all="Bomb Parfum'u keşfet" data-motto="Command the spotlight.">
+        <img class="acc__img" src="assets/img/panel-best.jpg" alt="Elinde iki Bomb tutan Eda Taşpınar" decoding="sync" fetchpriority="high">
+        <h3 class="acc__label">Bomb Parfum</h3>
+      </article>
+      <article class="acc__card" data-ch="d-illusion" data-cat="illusion" data-tray="illusion,intenseoil,dryspray" data-all="Illusion'ı keşfet" data-motto="Glow louder than the rest.">
+        <img class="acc__img" src="assets/img/panel-bronze.jpg" alt="Kırmızı bikinili bronz ten" decoding="sync" fetchpriority="high">
+        <h3 class="acc__label">Illusion</h3>
+      </article>
+      <article class="acc__card" data-ch="ch-scent" data-cat="fragrance" data-tray="enigma,nova,asha,myra,groove" data-all="Parfümleri keşfet" data-motto="Soak up the stares.">
+        <img class="acc__img" src="assets/img/panel-fragrance.webp" alt="Bronz saten bluzlu portre" decoding="sync" fetchpriority="high">
+        <h3 class="acc__label">Parfüm & Mist</h3>
+      </article>
+    </div>
+  </section>
+
+  <!-- ÜRÜN ŞERİTLERİ -->
+  <section class="gang" id="ch-bronzing" data-keys="gold,miami,mykonos,copacabana,ibiza,tulum,sttropez,chaos,maximizer,cooling">
+    <div class="gang__rays" aria-hidden="true"></div>
+    <header class="gang__head">
+      <p class="chno">(01) — Bronzing Bomb</p>
+      <h2 class="gang__title"><em>You are</em> the golden hour</h2>
+    </header>
+    <div class="gang__viewport">
+      <div class="gang__track"></div>
+      <button class="gang__arrow gang__arrow--prev" aria-label="Önceki ürün"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <button class="gang__arrow gang__arrow--next" aria-label="Sonraki ürün"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+    <div class="gang__info" aria-live="polite">
+      <p class="gang__name"></p>
+      <p class="gang__dest"></p>
+      <p class="gang__note"></p>
+      <button class="gang__add"><span>Sepete ekle</span><span class="gang__price"></span></button>
+      <a class="gang__more" href="#">İncele <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+  <!-- DISCOVER 1 · Bomb Parfum (tam ekran görsel, sol altta başlık) -->
+  <section class="dsc dsc--full" id="d-parfum">
+    <img class="dsc__img" src="assets/img/disc-parfum.jpg" alt="Havuz başında pembe gözlüklü kadın" loading="lazy">
+    <div class="dsc__copy">
+      <h2 class="glowtype"><span>Command</span><b>the spotlight</b></h2>
+      <p class="dsc__sub">Bomb Parfum. Bomba, bu kez eau de parfum olarak.</p>
+      <a href="koleksiyon.html?c=parfum" class="dsc__link">Bomb Parfum'u keşfet <span>→</span></a>
+    </div>
+  </section>
+
+  <!-- SHOP THE GLOW: büyük görsel + 2x2 ürün, oklarla farklı dörtlüler; karta gelince soldaki görsel o ürüne döner -->
+  <section class="sg" id="d-illusion">
+    <a class="sg__hero" id="sgHero" href="koleksiyon.html?c=illusion">
+      <img class="sg__bg is-on" src="assets/sg/illusion.jpg" alt="">
+      <img class="sg__bg" alt="">
+      <img class="sg__bottle" id="sgBottle" src="assets/bomb/illusion.webp" alt="Illusion Glitter Oil">
+      <div class="sg__copy" id="sgCopy">
+        <p class="chno">(03) — Illusion Vücut Yağı</p>
+        <h2 class="glowtype"><span>Glow louder</span><b>than the rest</b></h2>
+        <span class="sg__link">Illusion'ı keşfet →</span>
+      </div>
+      <span class="sg__tag" id="sgTag"></span>
+    </a>
+    <div class="sg__side">
+      <div class="sg__grid" id="sgGrid"></div>
+      <div class="sg__nav">
+        <span class="sg__count" id="sgCount">01 / 03</span>
+        <span class="sg__title" id="sgTitle"></span>
+        <button class="sg__arrow" id="sgPrev" aria-label="Önceki ürünler"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <button class="sg__arrow" id="sgNext" aria-label="Sonraki ürünler"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET EDA -->
+  <section class="meet" id="eda">
+    <div class="meet__img reveal"><img src="assets/img/story-eda.jpg" alt="Elinde iki Bronzing Bomb tutan Eda Taşpınar" loading="lazy"></div>
+    <div class="meet__copy">
+      <p class="meet__idx">(04) — Kurucu</p>
+      <h2 class="glowtype"><span>Meet</span><b>Eda Taşpınar</b></h2>
+      <p class="meet__lede">Akdeniz güneşinde büyüdü, özgüvenle yol aldı. Eda, hayat boyu süren ışıltı tutkusunu, odaya girdiği an orayı sahiplenenler için bir markaya dönüştürdü.</p>
+      <img class="meet__sign" src="assets/img/logo-eda.png" alt="">
+      <a href="#" class="meet__link">Hikâyesi <span>→</span></a>
+    </div>
+  </section>
+  </div>
+
+</main>
+
+<footer class="ft">
+  <div class="ft__in">
+    <div class="ft__head">
+      <h2 class="ft__t"><em>Outshine</em> everyone</h2>
+      <form class="ft__form" onsubmit="event.preventDefault();this.classList.add('is-done')">
+        <input type="email" required placeholder="E-posta adresin" aria-label="E-posta">
+        <button type="submit">Kaydol</button>
+        <span class="ft__thanks">Listedesin. Güneşte görüşürüz.</span>
+      </form>
+      <p class="ft__text">Yeni ürünler ve kampanyalardan ilk sen haberdar ol.</p>
+    </div>
+    <nav class="ft__cols">
+      <div><h4>Alışveriş</h4><a href="koleksiyon.html?c=bronzing">Bronzlaştırıcı</a><a href="koleksiyon.html?c=parfum">Bomb Parfum</a><a href="koleksiyon.html?c=illusion">Illusion</a><a href="koleksiyon.html?c=fragrance">Parfüm &amp; Mist</a></div>
+      <div><h4>Yardım</h4><a href="#">Kargo</a><a href="#">İade &amp; değişim</a><a href="#">Sıkça sorulanlar</a><a href="#">İletişim</a></div>
+      <div><h4>Eda</h4><a href="index.html#eda">Hikâyesi</a><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">YouTube</a></div>
+    </nav>
+  </div>
+  <div class="ft__bottom">
+    <img src="assets/img/logo-eda.png" alt="Eda Taşpınar">
+    <span>© 2026 Eda Taşpınar®</span>
+    <span class="ft__legal"><a href="#">KVKK</a><a href="#">Gizlilik</a><a href="#">Kullanım koşulları</a></span>
+  </div>
+</footer>
+
+<!-- SEPET ÇEKMECESİ -->
+<div class="drawer-bg" id="drawerBg"></div>
+<aside class="drawer" id="drawer" aria-label="Sepet">
+  <div class="drawer__head">
+    <h3>Sepetin</h3>
+    <button class="icon-btn" id="drawerClose" aria-label="Sepeti kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="drawer__ship" id="drawerShip"></div>
+  <div class="drawer__items" id="drawerItems"></div>
+  <div class="drawer__foot">
+    <div class="drawer__total"><span>Ara toplam</span><strong id="drawerTotal">₺0</strong></div>
+    <button class="btn btn--dark btn--full">Sepete git ve öde</button>
+  </div>
+</aside>
+
+<script src="data.js?v=89"></script>
+<script src="main.js?v=105"></script>
+</body>
+</html>
