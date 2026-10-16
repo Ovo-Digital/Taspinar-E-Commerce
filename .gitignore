@@ -3,6 +3,8 @@
 !/.gitignore
 !/README.md
 !/serve.py
+!/vercel.json
+!/api/
 !/site/
 
 # site içinde repoya girmeyenler
