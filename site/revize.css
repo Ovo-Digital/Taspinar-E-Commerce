@@ -1,21 +1,22 @@
 /* Eda Taşpınar — Revize Modu. Siteden ayrışsın diye koyu zemin + bronz-altın vurgu. */
-.rv{--rv-ink:#1b120c;--rv-gold:#c9822a;--rv-gold2:#e0a43c;--rv-soft:#fbf5ea;--rv-line:rgba(27,18,12,.14);
+.rvz{--rv-ink:#1b120c;--rv-gold:#c9822a;--rv-gold2:#e0a43c;--rv-soft:#fbf5ea;--rv-line:rgba(27,18,12,.14);
   position:fixed;left:0;right:0;bottom:0;z-index:9999;pointer-events:none;font:400 14px/1.45 "Outfit",system-ui,sans-serif;color:var(--rv-ink);letter-spacing:0}
-.rv *{box-sizing:border-box}
-:where(.rv) :where(button,input,textarea,em,b,small,span,p){font-family:inherit;letter-spacing:inherit}
-:where(.rv) :where(input,textarea){color:inherit}
-.rv > *{pointer-events:auto}
+.rvz *{box-sizing:border-box}
+:where(.rvz) :where(button,input,textarea,em,b,small,span,p){font-family:inherit;letter-spacing:inherit}
+:where(.rvz) :where(input,textarea){color:inherit}
+.rvz > *{pointer-events:auto}
 
 /* mod açıkken imleç "seçiyorum" der; seçilen öğe altın çerçeveyle işaretlenir */
 body.rv-acik,body.rv-acik *{cursor:crosshair!important}
-body.rv-acik .rv,body.rv-acik .rv *{cursor:auto!important}
-body.rv-acik .rv button,body.rv-acik .rv label{cursor:pointer!important}
+body.rv-acik .rvz,body.rv-acik .rvz *{cursor:auto!important}
+body.rv-acik .rvz button,body.rv-acik .rvz label{cursor:pointer!important}
 .rv-vurgu{outline:2px solid #c9822a!important;outline-offset:2px!important;box-shadow:0 0 0 6px rgba(224,164,60,.18)!important}
 
 /* alt orta: düğme + not çubuğu */
-.rv-cubuk{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:6px;border-radius:999px;transition:bottom .5s cubic-bezier(.22,.8,.2,1)}
+.rv-cubuk{position:fixed;right:18px;bottom:18px;display:flex;align-items:center;gap:8px;padding:6px;border-radius:999px;transition:bottom .5s cubic-bezier(.22,.8,.2,1)}
 .rv-cubuk--acik{background:#fff;box-shadow:0 14px 40px rgba(27,18,12,.22)}
-body.by-bar-on .rv-cubuk{bottom:92px}
+body.pdp-by .rv-cubuk{bottom:72px}
+body.by-bar-on .rv-cubuk{bottom:148px}
 .rv-fab{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px 0 16px;border:0;border-radius:999px;background:var(--rv-ink);color:#fff;
   font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;box-shadow:0 12px 30px rgba(27,18,12,.28);cursor:pointer;transition:background .3s}
 .rv-cubuk--acik .rv-fab{box-shadow:none}
@@ -34,10 +35,11 @@ body.by-bar-on .rv-cubuk{bottom:92px}
 .rv-link{border:0;background:none;padding:0;color:#8a4a12;text-decoration:underline;text-underline-offset:3px;font-size:12px;cursor:pointer}
 
 /* paneller */
-.rv-panel{position:fixed;left:50%;bottom:78px;transform:translateX(-50%);width:min(400px,calc(100vw - 24px));max-height:min(72vh,600px);overflow-y:auto;
+.rv-panel{position:fixed;right:18px;bottom:78px;width:min(400px,calc(100vw - 24px));max-height:min(72vh,600px);overflow-y:auto;
   padding:20px;border-radius:16px;background:#fff;box-shadow:0 24px 64px rgba(27,18,12,.26);animation:rvGel .25s cubic-bezier(.22,.8,.2,1)}
-body.by-bar-on .rv-panel{bottom:152px}
-@keyframes rvGel{from{opacity:0;transform:translate(-50%,10px)}}
+body.pdp-by .rv-panel{bottom:132px}
+body.by-bar-on .rv-panel{bottom:208px}
+@keyframes rvGel{from{opacity:0;transform:translateY(10px)}}
 .rv-baslik{display:flex;align-items:center;gap:8px;margin:0;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#8a4a12}
 .rv-aciklama{margin:6px 0 12px;font-size:13px;color:#7a6b5d}
 .rv-alinti{margin:10px 0 0;padding-left:10px;border-left:2px solid var(--rv-gold);font-size:13px;color:#5a4a3c}
@@ -80,11 +82,13 @@ body.by-bar-on .rv-panel{bottom:152px}
 @keyframes rvGel2{from{opacity:0;transform:translate(-50%,-8px)}}
 
 @media (max-width:768px){
-  .rv-cubuk{bottom:70px;max-width:calc(100vw - 16px)}
+  .rv-cubuk{right:12px;bottom:70px;max-width:calc(100vw - 24px)}
+  body.pdp-by .rv-cubuk{bottom:70px}
   body.by-bar-on .rv-cubuk{bottom:134px}
   .rv-fab{height:40px;padding:0 14px;font-size:11px}
   .rv-uzun{display:none}.rv-kisa{display:inline}
   .rv-cubuk-yazi{display:none}
-  .rv-panel{bottom:120px;max-height:calc(100vh - 200px)}
+  .rv-panel{right:12px;bottom:120px;max-height:calc(100vh - 200px)}
+  body.pdp-by .rv-panel{bottom:120px}
   body.by-bar-on .rv-panel{bottom:184px;max-height:calc(100vh - 260px)}
 }

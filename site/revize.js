@@ -232,7 +232,7 @@
     if (kok) return;
     kok = document.createElement('div');
     kok.setAttribute('data-revize', '');
-    kok.className = 'rv';
+    kok.className = 'rvz';   // 'rv' sitenin yorum kartlarında kullanılıyor, çakışmasın
     document.body.appendChild(kok);
     kok.addEventListener('click', tiklama);
     addEventListener('keydown', e => {
